@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>welcome to waamelon site!</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 60px; }
+    h1 { font-size: 40px; margin-bottom: 40px; }
+    a { display: block; margin: 12px 0; font-size: 20px; }
+  </style>
+</head>
 
+<body>
+
+  <h1>welcome to waamelon site!</h1>
+
+  <h2>UTAUs</h2>
+  <div id="utau-list"></div>
+
+  <script>
+    // List ALL files in downloads/
+    const files = [
+      "Blea (UTAU).zip",
+      "Teto Rikimi (UTAU).zip",
+      "waagaem.exe",
+      "voicebank-test.wav",
+      "Sakebi (UTAU).zip",
+      "randomfile.txt"
+    ];
+
+    // Filter only files containing "(UTAU)"
+    const utauFiles = files.filter(f => f.includes("(UTAU)"));
+
+    const container = document.getElementById("utau-list");
+
+    utauFiles.forEach(file => {
+      const link = document.createElement("a");
+      link.href = "downloads/" + file;
+      link.download = file;
+      link.textContent = "Download " + file;
+      container.appendChild(link);
+    });
+  </script>
+
+</body>
+</html>
